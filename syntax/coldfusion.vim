@@ -15,8 +15,7 @@ syn include @sqlSyntax syntax/sql.vim
 unlet b:current_syntax
 syn include @htmlSyntax syntax/html.vim
 syn region htmlRegion start='<html>' end='</html>' contains=@htmlSyntax,cfmlIfTagRegion,cfmlFunctionTagRegion,cfmlOutputTagRegion,cfmlLoopTagRegion,cfmlScriptTagRegion
-unlet b:current_syntax
-" INCLUDES }}}
+" / INCLUDES }}}
 
 " NUMBER {{{
 syn match cfmlNumber
@@ -914,7 +913,7 @@ hi link cfmlParenthesis1 Statement
 " BRACE
 hi link cfmlBrace PreProc
 " PUNCTUATION - BRACKET
-hi link cfmlBracket Statement
+hi link cfmlBracket Ignore
 " PUNCTUATION - CHAR
 hi link cfmlComma Comment
 hi link cfmlDot Comment
