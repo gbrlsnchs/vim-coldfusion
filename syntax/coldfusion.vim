@@ -3,18 +3,22 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn sync fromstart
-syn sync maxlines=1000
+" syn sync fromstart
+" syn sync maxlines=1000
 syn case ignore
 
 " INCLUDES {{{
 syn include @sqlSyntax syntax/sql.vim
 " do not load html, it contains huge keywords regex, so it will have impact on performance
 " let's use simple SGML tag coloring instead
-" runtime! syntax/html.vim
 unlet b:current_syntax
-syn include @htmlSyntax syntax/html.vim
-syn region htmlRegion start='<html>' end='</html>' contains=@htmlSyntax,cfmlIfTagRegion,cfmlFunctionTagRegion,cfmlOutputTagRegion,cfmlLoopTagRegion,cfmlScriptTagRegion
+runtime! syntax/html.vim
+" syn include @htmlSyntax syntax/html.vim
+" syn region htmlRegion start='<html>' end='</html>' contains=@htmlSyntax,cfmlIfTagRegion,cfmlFunctionTagRegion,cfmlOutputTagRegion,cfmlLoopTagRegion,cfmlScriptTagRegion
+" syn include @jsSyntax syntax/javascript.vim
+" syn region jsRegion start='<script>' end='</script>' containedin=htmlRegion contains=@jsSyntax,cfmlIfTagRegion,cfmlFunctionTagRegion,cfmlOutputTagRegion,cfmlLoopTagRegion,cfmlScriptTagRegion
+" syn include @cssSyntax syntax/css.vim
+" syn region cssRegion start='<style>' end='</style>' containedin=htmlRegion contains=@cssSyntax,cfmlIfTagRegion,cfmlFunctionTagRegion,cfmlOutputTagRegion,cfmlLoopTagRegion,cfmlScriptTagRegion
 " / INCLUDES }}}
 
 " NUMBER {{{
@@ -351,7 +355,7 @@ syn region cfmlIfTagRegion
             \ keepend
             \ transparent
             \ start="\c<\(cfif\|cfelseif\|cfelse\)"
-            \ end="\c</cfif\|cfelseif\|cfelse>"
+            \ end="\c</cfif>"
 " / CFIF REGION AND FOLD }}}
 
 " CFLOOP REGION AND FOLD {{{
