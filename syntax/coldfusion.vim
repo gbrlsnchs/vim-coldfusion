@@ -161,7 +161,7 @@ syn cluster cfmlParenthesisRegionContains
 
 syn region cfmlParenthesisRegion
             \ extend
-            \ matchgroup=cfmlParenthesis1
+            \ matchgroup=cfmlParenthesis
             \ transparent
             \ start=/(/
             \ end=/)/
@@ -712,7 +712,7 @@ syn match cfmlPropertyKeyword
 " FUNCTION DEFINITION {{{
 syn match cfmlFunctionDefinition
             \ "\v
-            \(<(public|private|package)\s){,1}
+            \(<(public|private|package|remote)\s){,1}
             \(<
             \(any
             \|array
@@ -747,6 +747,7 @@ syn match cfmlFunctionModifier
             \(public
             \|private
             \|package
+            \|remote
             \)>"
 " / FUNCTION MODIFIER }}}
 
@@ -789,6 +790,7 @@ syn region cfmlOddFunction
             \|lock
             \|pageencoding
             \|param
+            \|returnformat
             \|savecontent
             \|thread
             \|transaction
@@ -913,7 +915,7 @@ hi link cfmlDecisionOperator Ignore
 hi link cfmlStringOperator Function
 hi link cfmlTernaryOperator Function
 " PARENTHESIS
-hi link cfmlParenthesis1 Statement
+hi link cfmlParenthesis Ignore
 " BRACE
 hi link cfmlBrace PreProc
 " PUNCTUATION - BRACKET
@@ -964,7 +966,7 @@ hi link cfmlInterfaceKeyword Keyword
 hi link cfmlPropertyKeyword Keyword
 " FUNCTION DEFINITION
 hi link cfmlFunctionKeyword Keyword
-hi link cfmlFunctionModifier Keyword
+hi link cfmlFunctionModifier Function
 hi link cfmlFunctionReturnType Keyword
 hi link cfmlFunctionName Function
 " ODD FUNCTION
