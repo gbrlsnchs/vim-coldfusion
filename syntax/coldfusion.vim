@@ -13,6 +13,7 @@ syn include @sqlSyntax syntax/sql.vim
 " let's use simple SGML tag coloring instead
 unlet b:current_syntax
 runtime! syntax/html.vim
+unlet b:current_syntax
 " syn include @htmlSyntax syntax/html.vim
 " syn region htmlRegion start='<html>' end='</html>' contains=@htmlSyntax,cfmlIfTagRegion,cfmlFunctionTagRegion,cfmlOutputTagRegion,cfmlLoopTagRegion,cfmlScriptTagRegion
 " syn include @jsSyntax syntax/javascript.vim
@@ -966,7 +967,7 @@ hi link cfmlInterfaceKeyword Keyword
 hi link cfmlPropertyKeyword Keyword
 " FUNCTION DEFINITION
 hi link cfmlFunctionKeyword Keyword
-hi link cfmlFunctionModifier Function
+hi link cfmlFunctionModifier Keyword
 hi link cfmlFunctionReturnType Keyword
 hi link cfmlFunctionName Function
 " ODD FUNCTION
